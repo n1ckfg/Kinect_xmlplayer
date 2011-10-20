@@ -14,7 +14,7 @@ boolean loaded = false;
 
 String[] oscNames = {
 //~~~   complete list of working joints, check updates at https://github.com/Sensebloom/OSCeleton  ~~~
-"head","neck","torso","r_shoulder","r_elbow","r_hand","l_shoulder","l_elbow","l_hand","r_hip","r_knee","r_ankle","r_foot","l_hip","l_knee","l_ankle","l_foot"
+"head","neck","torso","r_shoulder","r_elbow","r_hand","l_shoulder","l_elbow","l_hand","r_hip","r_knee","r_foot","l_hip","l_knee","l_foot"
 //~~~
 //"r_hand","r_wrist","r_elbow","r_shoulder", "l_hand","l_wrist","l_elbow","l_shoulder","head","torso"
 };
@@ -53,7 +53,7 @@ void xmlEvent(proxml.XMLElement element) {
 }
 
 void xmlFirstRun(){
-  counterMax = int(MotionCapture.getAttribute("numMocapFrames"));
+  counterMax = int(MotionCapture.getAttribute("numFrames"));
 }
 
 void draw() {

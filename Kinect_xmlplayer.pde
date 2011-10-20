@@ -8,7 +8,7 @@ int fps = 24;
 int counter = 0;
 int counterMax; //set by xml file
 
-proxml.XMLElement Motion;
+proxml.XMLElement MotionCapture;
 XMLInOut xmlIO;
 boolean loaded = false;
 
@@ -46,14 +46,14 @@ void xmlInit(){
 
 void xmlEvent(proxml.XMLElement element) {
   //this function is ccalled by default when an XML object is loaded
-  Motion = element;
+  MotionCapture = element;
   //parseXML(); //appelle la fonction qui analyse le fichier XML
   loaded = true;
   xmlFirstRun();
 }
 
 void xmlFirstRun(){
-  counterMax = int(Motion.getAttribute("numFrames"));
+  counterMax = int(MotionCapture.getAttribute("numMocapFrames"));
 }
 
 void draw() {
@@ -83,7 +83,7 @@ void parseXML(){
     for(int i=0;i<oscXmlTags.length;i++) {
     String posXs, posYs, posZs;
     float posX, posY, posZ;
-    oscXmlTags[i] = Motion.getChild(counter).getChild(0).getChild(0).getChild(i); //gets to the child we need
+    oscXmlTags[i] = MotionCapture.getChild(counter).getChild(0).getChild(0).getChild(i); //gets to the child we need
     //loops through all the children that interest us
     posXs = oscXmlTags[i].getAttribute("x"); //gets the title
     posYs = oscXmlTags[i].getAttribute("y"); //gets the URL link
